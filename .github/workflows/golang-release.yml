@@ -1,7 +1,8 @@
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
+    secrets:
+      token:
+        required: true
 
 jobs:
   release-please:
@@ -32,4 +33,4 @@ jobs:
           version: latest
           args: release --clean
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.token }}
