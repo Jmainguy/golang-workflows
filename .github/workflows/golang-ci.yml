@@ -43,7 +43,6 @@ jobs:
 
       - name: Run Unit tests
         run: |
-          ls -ltrh database/
           go-acc .
 
       - name: Send coverage
