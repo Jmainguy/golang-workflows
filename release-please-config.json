@@ -1,4 +1,8 @@
 {
+  "include-component-in-tag": true,
+  "include-v-in-tag": true,
+  "tag-separator": "@",
+  "separate-pull-requests": true,
   "packages": {
     ".github/workflows/golang-ci.yml": {
       "release-type": "simple",
