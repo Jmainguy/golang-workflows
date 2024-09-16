@@ -5,15 +5,10 @@
     ".github/workflows": {
       "release-type": "simple",
       "package-name": "golang",
-      "changelog-path": "golang/CHANGELOG.md",
+      "changelog-path": "../../golang/CHANGELOG.md",
       "exclude-paths": [
         ".github/workflows/release-please.yml"
       ]
-    },
-    "golang": {
-      "release-type": "simple",
-      "package-name": "golang",
-      "changelog-path": "golang/CHANGELOG.md"
     }
   },
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
