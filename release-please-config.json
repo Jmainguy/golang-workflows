@@ -2,12 +2,12 @@
   "include-v-in-tag": true,
   "separate-pull-requests": true,
   "packages": {
-    ".github/workflows/golang-ci.yml": {
+    "./.github/workflows/golang-ci.yml": {
       "release-type": "simple",
       "package-name": "golang",
       "changelog-path": "CHANGELOGS/golang-CHANGELOG.md"
     },
-    ".github/workflows/golang-release.yml": {
+    "./.github/workflows/golang-release.yml": {
       "release-type": "simple",
       "package-name": "golang",
       "changelog-path": "CHANGELOGS/golang-CHANGELOG.md"
