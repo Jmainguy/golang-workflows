@@ -4,12 +4,12 @@
   "packages": {
     "./.github/workflows/golang-ci.yml": {
       "release-type": "simple",
-      "package-name": "golang",
+      "package-name": "golang-ci",
       "changelog-path": "CHANGELOGS/golang-CHANGELOG.md"
     },
     "./.github/workflows/golang-release.yml": {
       "release-type": "simple",
-      "package-name": "golang",
+      "package-name": "golang-release",
       "changelog-path": "CHANGELOGS/golang-CHANGELOG.md"
     }
   },

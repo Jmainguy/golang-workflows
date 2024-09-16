@@ -1,3 +1,4 @@
 {
-  "golang": "0.0.0"
+  "golang-ci": "0.0.0",
+  "golang-release": "0.0.0"
 }
