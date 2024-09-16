@@ -2,9 +2,8 @@
   "include-v-in-tag": true,
   "separate-pull-requests": true,
   "packages": {
-    "golang": {
+    ".": {
       "release-type": "go",
-      "package-name": "golang",
       "changelog-path": "CHANGELOG.md"
     }
   },
