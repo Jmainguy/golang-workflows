@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/Jmainguy/golang-workflows/compare/v1.0.2...v1.1.0) (2024-09-16)
+
+
+### Features
+
+* support docker for goreleaser ([ec6abb7](https://github.com/Jmainguy/golang-workflows/commit/ec6abb734a5c1d2b19b22ccabaef60e5145d2ba0))
+
 ## [1.0.2](https://github.com/Jmainguy/golang-workflows/compare/v1.0.1...v1.0.2) (2024-09-16)
 
 
