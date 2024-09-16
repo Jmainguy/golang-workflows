@@ -1,0 +1,90 @@
+name: Reusable Golang CI Workflow
+
+on:
+  workflow_call:
+
+jobs:
+  golangci-lint:
+    name: golangci-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          # Required: the version of golangci-lint is required and must be specified without patch version: we always use the latest patch version.
+          version: v1.61.0
+          args: --timeout=5m
+
+  unit-tests:
+    name: Test with Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Get Build Tools
+        run: |
+          go install github.com/ory/go-acc@latest
+
+      - name: Add $GOPATH/bin to $PATH
+        run: |
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Install dependencies
+        run: |
+          go mod tidy
+
+      - name: Run Unit tests
+        run: |
+          go-acc .
+
+      - name: Send coverage
+        uses: shogo82148/actions-goveralls@v1
+        with:
+          path-to-profile: coverage.txt
+
+  lint-and-build:
+    name: Lint and build
+    runs-on: ubuntu-latest
+    steps:
+      - name: install go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: git checkout
+        uses: actions/checkout@v4
+
+      - name: install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
+      - name: Add $GOPATH/bin to $PATH
+        run: |
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Go fmt
+        run: |
+          FormatCheck=$(gofmt -l *.go | wc -l)
+          if [ $FormatCheck -gt 0 ]; then
+              gofmt -l *.go
+              echo "gofmt -w *.go your code please."
+              exit 1
+          fi
+
+      - name: Staticcheck
+        run: |
+          staticcheck ./...
+
+      - name: Go Vet
+        run: |
+          go vet ./...
+
+      - name: go build
+        run: go build
