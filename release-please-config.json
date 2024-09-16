@@ -4,13 +4,18 @@
   "packages": {
     ".github/workflows/golang-ci.yml": {
       "release-type": "simple",
-      "package-name": "golang-ci",
-      "changelog-path": "CHANGELOGS/golang-CHANGELOG.md"
+      "package-name": "golang",
+      "changelog-path": "golang/CHANGELOG.md"
     },
     ".github/workflows/golang-release.yml": {
       "release-type": "simple",
-      "package-name": "golang-release",
-      "changelog-path": "CHANGELOGS/golang-CHANGELOG.md"
+      "package-name": "golang",
+      "changelog-path": "golang/CHANGELOG.md"
+    },
+    "golang": {
+      "release-type": "simple",
+      "package-name": "golang",
+      "changelog-path": "golang/CHANGELOG.md"
     }
   },
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
