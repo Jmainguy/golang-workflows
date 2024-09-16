@@ -3,7 +3,7 @@
   "separate-pull-requests": true,
   "packages": {
     ".github/workflows": {
-      "release-type": "simple",
+      "release-type": "go",
       "package-name": "golang",
       "changelog-path": "/golang/CHANGELOG.md",
       "exclude-paths": [
@@ -13,4 +13,3 @@
   },
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
 }
-
