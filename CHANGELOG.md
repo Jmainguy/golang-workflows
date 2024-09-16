@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/Jmainguy/golang-workflows/compare/v1.0.1...v1.0.2) (2024-09-16)
+
+
+### Bug Fixes
+
+* trigger release ([53f19f6](https://github.com/Jmainguy/golang-workflows/commit/53f19f6093fdb21577b5791f067e79ca7031742d))
+
 ## [1.0.1](https://github.com/Jmainguy/golang-workflows/compare/v1.0.0...v1.0.1) (2024-09-16)
 
 
