@@ -3,7 +3,18 @@ on:
     secrets:
       token:
         required: true
-
+      docker_username:
+        required: false  # Optional, only required if Docker login is needed
+      docker_password:
+        required: false  # Optional, only required if Docker login is needed
+      docker_url:
+        required: false  # Optional, only required if Docker login is needed
+    inputs:
+      docker_url:
+        type: string
+        required: false
+  
+  
 jobs:
   release-please:
     runs-on: ubuntu-latest
@@ -30,6 +41,15 @@ jobs:
         with:
           go-version: "1.23"
           cache: false
+
+      # Conditionally login to Docker
+      - name: Login to docker
+        if: ${{ inputs.docker_url }}
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ inputs.docker_url }}
+          username: ${{ secrets.docker_username }}
+          password: ${{ secrets.docker_password }}
 
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
