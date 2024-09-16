@@ -1,3 +1,4 @@
 {
-  "golang": "1.0.0"
+  "golang": "1.0.0",
+  ".github/workflows": "1.0.0"
 }
