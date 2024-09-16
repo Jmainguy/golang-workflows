@@ -5,7 +5,7 @@
     ".github/workflows": {
       "release-type": "simple",
       "package-name": "golang",
-      "changelog-path": "../../golang/CHANGELOG.md",
+      "changelog-path": "/golang/CHANGELOG.md",
       "exclude-paths": [
         ".github/workflows/release-please.yml"
       ]
