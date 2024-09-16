@@ -2,13 +2,10 @@
   "include-v-in-tag": true,
   "separate-pull-requests": true,
   "packages": {
-    ".github/workflows": {
+    "golang": {
       "release-type": "go",
       "package-name": "golang",
-      "changelog-path": "/golang/CHANGELOG.md",
-      "exclude-paths": [
-        ".github/workflows/release-please.yml"
-      ]
+      "changelog-path": "CHANGELOG.md"
     }
   },
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
