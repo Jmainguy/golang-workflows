@@ -137,10 +137,4 @@ jobs:
         with:
           image: "localbuild/scanme:latest"
           severity-cutoff: high
-
-      - name: upload Anchore scan SARIF report for docker image
-        if: ${{ inputs.docker }}
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: ${{ steps.docker.outputs.sarif }}
-
+          output-format: table
