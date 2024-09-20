@@ -2,6 +2,10 @@ name: Reusable Golang CI Workflow
 
 on:
   workflow_call:
+    inputs:
+      docker:
+        type: boolean
+        required: false
 
 jobs:
   golangci-lint:
@@ -90,3 +94,54 @@ jobs:
 
       - name: go build
         run: go build
+
+  security:
+    name: Scan code in repository
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: install go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+          cache: false
+
+      - name: git checkout
+        uses: actions/checkout@v4
+
+      - name: go build
+        run: go build
+
+      - name: Scan current project
+        uses: anchore/scan-action@v3
+        id: code
+        with:
+          path: "."
+          severity-cutoff: high
+
+      - name: upload Anchore scan SARIF report for code
+        if: ${{ inputs.docker }}
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: ${{ steps.code.outputs.sarif }}
+          category: "code"
+
+      # Scan container, if docker is true
+      - name: Build the container image
+        if: ${{ inputs.docker }}
+        run: docker build . --file Dockerfile --tag localbuild/scanme:latest
+
+      - name: Scan docker image
+        if: ${{ inputs.docker }}
+        id: docker
+        uses: anchore/scan-action@v3
+        with:
+          image: "localbuild/scanme:latest"
+          severity-cutoff: high
+
+      - name: upload Anchore scan SARIF report for docker
+        if: ${{ inputs.docker }}
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: ${{ steps.docker.outputs.sarif }}
+          category: "docker"
