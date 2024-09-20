@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/Jmainguy/golang-workflows/compare/v1.1.0...v1.2.0) (2024-09-20)
+
+
+### Features
+
+* scan with anchore/grype ([97f8f62](https://github.com/Jmainguy/golang-workflows/commit/97f8f62a949511d810ec91a8fe56ef84cac0e848))
+
+
+### Bug Fixes
+
+* git checkout ([95950df](https://github.com/Jmainguy/golang-workflows/commit/95950df9ecee965e4a48581b665118fd0cc72d51))
+* only one upload allowed ([12a0e7c](https://github.com/Jmainguy/golang-workflows/commit/12a0e7c237c23ed25756d0085bd527b65f1097fe))
+
 ## [1.1.0](https://github.com/Jmainguy/golang-workflows/compare/v1.0.2...v1.1.0) (2024-09-16)
 
 
