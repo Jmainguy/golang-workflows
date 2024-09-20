@@ -121,9 +121,10 @@ jobs:
 
       - name: upload Anchore scan SARIF report for code
         if: ${{ inputs.docker }}
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: ${{ steps.code.outputs.sarif }}
+          category: "code"
 
       # Scan container, if docker is true
       - name: Build the container image
@@ -137,4 +138,10 @@ jobs:
         with:
           image: "localbuild/scanme:latest"
           severity-cutoff: high
-          output-format: table
+
+      - name: upload Anchore scan SARIF report for docker
+        if: ${{ inputs.docker }}
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: ${{ steps.docker.outputs.sarif }}
+          category: "docker"
