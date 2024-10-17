@@ -7,8 +7,6 @@ on:
         required: false  # Optional, only required if Docker login is needed
       docker_password:
         required: false  # Optional, only required if Docker login is needed
-      docker_url:
-        required: false  # Optional, only required if Docker login is needed
     inputs:
       docker_url:
         type: string
