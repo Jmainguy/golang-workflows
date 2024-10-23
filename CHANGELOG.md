@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/Jmainguy/golang-workflows/compare/v1.2.0...v1.3.0) (2024-10-23)
+
+
+### Features
+
+* supports ko builds ([1c05e8c](https://github.com/Jmainguy/golang-workflows/commit/1c05e8c515c60e762f5e736288c61f4955f8211b))
+
 ## [1.2.0](https://github.com/Jmainguy/golang-workflows/compare/v1.1.0...v1.2.0) (2024-09-20)
 
 
