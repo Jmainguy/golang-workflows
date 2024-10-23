@@ -126,6 +126,9 @@ jobs:
           sarif_file: ${{ steps.code.outputs.sarif }}
           category: "code"
 
+      - uses: ko-build/setup-ko@v0.6
+        if: ${{ inputs.docker }}
+
       # Scan container, if docker is true
       - name: Build the container image
         if: ${{ inputs.docker }}
