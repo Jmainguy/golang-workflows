@@ -133,6 +133,8 @@ jobs:
       - name: Build the container image
         if: ${{ inputs.docker }}
         run: ko build --push=false --tarball /tmp/tar
+        env:
+          KO_DOCKER_REPO: jmainguy
 
       - name: Scan docker image
         if: ${{ inputs.docker }}
