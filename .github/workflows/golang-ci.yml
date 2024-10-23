@@ -129,14 +129,14 @@ jobs:
       # Scan container, if docker is true
       - name: Build the container image
         if: ${{ inputs.docker }}
-        run: docker build . --file Dockerfile --tag localbuild/scanme:latest
+        run: ko build --push=false --tarball /tmp/tar
 
       - name: Scan docker image
         if: ${{ inputs.docker }}
         id: docker
         uses: anchore/scan-action@v5
         with:
-          image: "localbuild/scanme:latest"
+          path: /tmp/tar
           severity-cutoff: high
 
       - name: upload Anchore scan SARIF report for docker
