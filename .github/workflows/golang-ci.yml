@@ -136,12 +136,16 @@ jobs:
         env:
           KO_DOCKER_REPO: jmainguy
 
+      - name: Load container
+        if: ${{ inputs.docker }}
+        run: docker image import /tmp/tar build:scan
+      
       - name: Scan docker image
         if: ${{ inputs.docker }}
         id: docker
         uses: anchore/scan-action@v5
         with:
-          path: /tmp/tar
+          image: build:scan
           severity-cutoff: high
 
       - name: upload Anchore scan SARIF report for docker
