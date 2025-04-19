@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/Jmainguy/golang-workflows/compare/v1.3.0...v1.3.1) (2025-04-19)
+
+
+### Bug Fixes
+
+* update to latest dependencies and go 1.24 ([f9ffef7](https://github.com/Jmainguy/golang-workflows/commit/f9ffef7f3399ef4cd248230706f7b7dd8d35087b))
+
 ## [1.3.0](https://github.com/Jmainguy/golang-workflows/compare/v1.2.0...v1.3.0) (2024-10-23)
 
 
