@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/Jmainguy/golang-workflows/compare/v1.3.1...v1.3.2) (2025-04-19)
+
+
+### Bug Fixes
+
+* update golang-lint ([2b89058](https://github.com/Jmainguy/golang-workflows/commit/2b89058e8cd8e3637acc8ceea7a93f5aed38a91e))
+
 ## [1.3.1](https://github.com/Jmainguy/golang-workflows/compare/v1.3.0...v1.3.1) (2025-04-19)
 
 
