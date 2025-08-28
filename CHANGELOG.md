@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.3](https://github.com/Jmainguy/golang-workflows/compare/v1.3.2...v1.3.3) (2025-08-28)
+
+
+### Bug Fixes
+
+* Merge pull request [#30](https://github.com/Jmainguy/golang-workflows/issues/30) from Jmainguy/renovate/golangci-golangci-lint-action-8.x ([8acc420](https://github.com/Jmainguy/golang-workflows/commit/8acc4200e070e12664848d8dac620e2c470c7df1))
+
 ## [1.3.2](https://github.com/Jmainguy/golang-workflows/compare/v1.3.1...v1.3.2) (2025-04-19)
 
 
