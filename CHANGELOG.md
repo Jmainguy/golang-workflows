@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.4](https://github.com/Jmainguy/golang-workflows/compare/v1.3.3...v1.3.4) (2025-08-28)
+
+
+### Bug Fixes
+
+* update golang-ci ([087edee](https://github.com/Jmainguy/golang-workflows/commit/087edee9592497f345b7408c0e27da435ec8357c))
+
 ## [1.3.3](https://github.com/Jmainguy/golang-workflows/compare/v1.3.2...v1.3.3) (2025-08-28)
 
 
