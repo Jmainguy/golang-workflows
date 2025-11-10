@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/Jmainguy/golang-workflows/compare/v1.3.4...v1.4.0) (2025-11-10)
+
+
+### Features
+
+* remove go-acc ([5f068c7](https://github.com/Jmainguy/golang-workflows/commit/5f068c7e7d3c5f8c589d68ff346cc804f3c2e80c))
+
 ## [1.3.4](https://github.com/Jmainguy/golang-workflows/compare/v1.3.3...v1.3.4) (2025-08-28)
 
 
