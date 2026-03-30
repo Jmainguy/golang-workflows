@@ -43,7 +43,7 @@ jobs:
       # Conditionally login to Docker
       - name: Login to docker
         if: ${{ inputs.docker_url }}
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ${{ inputs.docker_url }}
           username: ${{ secrets.docker_username }}
