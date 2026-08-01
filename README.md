@@ -28,7 +28,7 @@ jobs:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
     with:
-      docker_url: zot.soh.re
+      docker_url: zot.standouthost.com
 ```
 
 ci.yml
