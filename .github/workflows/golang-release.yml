@@ -11,15 +11,24 @@ on:
       docker_url:
         type: string
         required: false
-  
-  
+      # When set, skip release-please and publish an existing tag with GoReleaser.
+      # Use this to recover from a failed release or race where the GitHub release
+      # exists but assets/images were never published.
+      tag:
+        type: string
+        required: false
+        default: ""
+
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    if: ${{ inputs.tag == '' }}
     outputs:
       release_created: ${{ steps.release-please.outputs.release_created }}
+      tag_name: ${{ steps.release-please.outputs.tag_name }}
+      sha: ${{ steps.release-please.outputs.sha }}
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v5
         id: release-please
         with:
           release-type: go
@@ -27,15 +36,20 @@ jobs:
   release:
     runs-on: ubuntu-latest
     needs: release-please
-    if: needs.release-please.outputs.release_created
+    # Run when release-please created a release, or when a tag was provided for republish.
+    # release-please is skipped on republish; always() keeps this job eligible.
+    if: ${{ always() && !cancelled() && (inputs.tag != '' || needs.release-please.outputs.release_created == 'true') }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          # Always build the tagged commit, not the workflow trigger SHA.
+          # Fixes races where release_created is true on a different push than the tag.
+          ref: ${{ inputs.tag || needs.release-please.outputs.tag_name }}
 
       - run: git fetch --force --tags
 
-      - uses: actions/setup-go@v6
+      - uses: actions/setup-go@v7
         with:
           go-version: "1.26"
           cache: false
