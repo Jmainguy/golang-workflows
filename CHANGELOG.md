@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/Jmainguy/golang-workflows/compare/v1.4.0...v1.4.1) (2026-08-04)
+
+
+### Bug Fixes
+
+* checkout release tag before running goreleaser ([19d170a](https://github.com/Jmainguy/golang-workflows/commit/19d170a0ad85af74589f565642e34b1fd190c43f))
+
 ## [1.4.0](https://github.com/Jmainguy/golang-workflows/compare/v1.3.4...v1.4.0) (2025-11-10)
 
 
