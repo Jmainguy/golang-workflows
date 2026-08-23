@@ -7,10 +7,31 @@ on:
         required: false  # Optional, only required if Docker login is needed
       docker_password:
         required: false  # Optional, only required if Docker login is needed
+      notation_private_key:
+        required: false
+      notation_certificate_chain:
+        required: false
+      notation_ca_certificate:
+        required: false
     inputs:
       docker_url:
         type: string
         required: false
+      registry_namespace:
+        description: OCI repository namespace used by GoReleaser/ko
+        type: string
+        required: false
+        default: jmainguy
+      image_name:
+        description: Final OCI image repository name; required when docker_url is set
+        type: string
+        required: false
+        default: ""
+      notation_key_name:
+        description: Local name assigned to the Notation signing key
+        type: string
+        required: false
+        default: jon-soh-re
       # When set, skip release-please and publish an existing tag with GoReleaser.
       # Use this to recover from a failed release or race where the GitHub release
       # exists but assets/images were never published.
@@ -70,3 +91,29 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.token }}
+          KO_DOCKER_REPO: ${{ inputs.docker_url }}/${{ inputs.registry_namespace }}/${{ inputs.image_name }}
+
+      - name: Resolve published image digest
+        if: ${{ inputs.docker_url != '' }}
+        id: image
+        env:
+          IMAGE: ${{ inputs.docker_url }}/${{ inputs.registry_namespace }}/${{ inputs.image_name }}
+          TAG: ${{ inputs.tag || needs.release-please.outputs.tag_name }}
+        run: |
+          test -n "${{ inputs.image_name }}"
+          digest="$(docker buildx imagetools inspect "${IMAGE}:${TAG}" --format '{{json .Manifest.Digest}}' | tr -d '"')"
+          test -n "${digest}"
+          echo "artifact=${IMAGE}@${digest}" >> "${GITHUB_OUTPUT}"
+
+      - name: Sign and verify image digest
+        if: ${{ inputs.docker_url != '' }}
+        uses: Jmainguy/notation-action@v1
+        with:
+          version: 1.3.2
+          artifact: ${{ steps.image.outputs.artifact }}
+          key-name: ${{ inputs.notation_key_name }}
+          private-key: ${{ secrets.notation_private_key }}
+          certificate-chain: ${{ secrets.notation_certificate_chain }}
+          ca-certificate: ${{ secrets.notation_ca_certificate }}
+          username: ${{ secrets.docker_username }}
+          password: ${{ secrets.docker_password }}
