@@ -91,7 +91,8 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.token }}
-          KO_DOCKER_REPO: ${{ inputs.docker_url }}/${{ inputs.registry_namespace }}/${{ inputs.image_name }}
+          # ko treats this as a repository root and appends the project name.
+          KO_DOCKER_REPO: ${{ inputs.docker_url }}/${{ inputs.registry_namespace }}
 
       - name: Resolve published image digest
         if: ${{ inputs.docker_url != '' }}
