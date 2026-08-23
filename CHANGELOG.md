@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/Jmainguy/golang-workflows/compare/v1.4.1...v2.0.0) (2026-08-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* sign OCI image releases with Notation
+
+### Features
+
+* sign OCI image releases with Notation ([7cd2269](https://github.com/Jmainguy/golang-workflows/commit/7cd2269dac361768fa755fd009fa3bb2ffa8c452))
+
 ## [1.4.1](https://github.com/Jmainguy/golang-workflows/compare/v1.4.0...v1.4.1) (2026-08-04)
 
 
