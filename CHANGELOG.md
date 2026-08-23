@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/Jmainguy/golang-workflows/compare/v2.0.0...v2.1.0) (2026-08-23)
+
+
+### Features
+
+* update Go toolchain to 1.27 ([8bf8dae](https://github.com/Jmainguy/golang-workflows/commit/8bf8dae7a9d448531fc42b809fe54ed574cd0854))
+
 ## [2.0.0](https://github.com/Jmainguy/golang-workflows/compare/v1.4.1...v2.0.0) (2026-08-23)
 
 
