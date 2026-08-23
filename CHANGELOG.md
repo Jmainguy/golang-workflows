@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/Jmainguy/golang-workflows/compare/v2.1.0...v2.1.1) (2026-08-23)
+
+
+### Bug Fixes
+
+* pass namespace root to ko releases ([5c42e2f](https://github.com/Jmainguy/golang-workflows/commit/5c42e2f09c94331d34c76e5e8ba5ce30a02d5784))
+
 ## [2.1.0](https://github.com/Jmainguy/golang-workflows/compare/v2.0.0...v2.1.0) (2026-08-23)
 
 
