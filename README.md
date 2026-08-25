@@ -2,6 +2,7 @@
 
 This repository is for managing github workflows for the purpose of automating the Continuous Integration of a Golang codebase.
 
+**[See the release workflow in production at jmainguy.com →](https://jmainguy.com/)**
 
 ## Usage
 
